@@ -37,10 +37,8 @@ background: rgba(26,10,0,0.95);
 backdrop-filter: blur(12px);
 border-bottom: 1px solid rgba(200,150,12,0.3);
 }
-.nav-logo {
-display: flex; align-items: center;
-}
-.nav-logo img { height: 45px; object-fit: contain; filter: brightness(0) invert(1); }
+.nav-logo { display: flex; align-items: center; }
+.nav-logo img { height: 45px; object-fit: contain; }
 .nav-links { display: flex; gap: 28px; align-items: center; }
 .nav-links a {
 text-decoration: none; color: rgba(255,255,255,0.7);
@@ -52,8 +50,7 @@ text-transform: uppercase; transition: color 0.3s;
 background: var(--gold); color: var(--dark);
 padding: 8px 18px; border-radius: 20px;
 font-size: 12px; letter-spacing: 1px;
-font-weight: 600; text-decoration: none;
-transition: all 0.3s;
+font-weight: 600; text-decoration: none; transition: all 0.3s;
 }
 .nav-amazon:hover { background: var(--light-gold); }
 .hero {
@@ -68,116 +65,69 @@ background: radial-gradient(circle, rgba(200,150,12,0.15) 0%, transparent 70%);
 border-radius: 50%;
 }
 .hero::after {
-content: '🍜';
-position: absolute; right: 8%; top: 25%;
-font-size: 200px; opacity: 0.06;
-pointer-events: none;
+content: '🍜'; position: absolute; right: 8%; top: 25%;
+font-size: 200px; opacity: 0.06; pointer-events: none;
 }
 .hero-content { max-width: 620px; animation: fadeUp 1s ease both; }
 .hero-tag {
 display: inline-block; background: rgba(200,150,12,0.2);
-color: var(--gold); padding: 6px 16px;
-border-radius: 20px; font-size: 11px;
-letter-spacing: 2px; text-transform: uppercase;
+color: var(--gold); padding: 6px 16px; border-radius: 20px;
+font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
 margin-bottom: 24px; border: 1px solid rgba(200,150,12,0.3);
 }
 .hero h1 {
 font-family: 'Cormorant Garamond', serif;
 font-size: clamp(48px, 7vw, 80px);
-font-weight: 300; line-height: 1.1;
-margin-bottom: 24px; color: white;
+font-weight: 300; line-height: 1.1; margin-bottom: 24px; color: white;
 }
 .hero h1 em { font-style: italic; color: var(--gold); }
 .hero p {
 font-size: 16px; line-height: 1.8;
-color: rgba(255,255,255,0.6);
-margin-bottom: 40px; max-width: 480px;
+color: rgba(255,255,255,0.6); margin-bottom: 40px; max-width: 480px;
 }
 .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
 .btn-primary {
 background: var(--gold); color: var(--dark);
-padding: 14px 32px; border-radius: 30px;
-font-size: 13px; letter-spacing: 1px;
-font-weight: 600; border: none; cursor: pointer;
+padding: 14px 32px; border-radius: 30px; font-size: 13px;
+letter-spacing: 1px; font-weight: 600; border: none; cursor: pointer;
 transition: all 0.3s; text-decoration: none; display: inline-block;
 }
 .btn-primary:hover { background: var(--light-gold); transform: translateY(-2px); }
 .btn-secondary {
-background: transparent; color: white;
-padding: 14px 32px; border-radius: 30px;
-font-size: 13px; letter-spacing: 1px;
-border: 1.5px solid rgba(255,255,255,0.3);
-cursor: pointer; transition: all 0.3s;
-text-decoration: none; display: inline-block;
+background: transparent; color: white; padding: 14px 32px;
+border-radius: 30px; font-size: 13px; letter-spacing: 1px;
+border: 1.5px solid rgba(255,255,255,0.3); cursor: pointer;
+transition: all 0.3s; text-decoration: none; display: inline-block;
 }
 .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
 .amazon-banner {
-background: var(--gold); color: var(--dark);
-padding: 14px 40px; display: flex;
-justify-content: center; align-items: center;
+background: var(--gold); color: var(--dark); padding: 14px 40px;
+display: flex; justify-content: center; align-items: center;
 gap: 12px; font-size: 13px; letter-spacing: 1px; font-weight: 500;
 }
 .amazon-badge {
-background: var(--dark); color: var(--gold);
-padding: 4px 12px; border-radius: 12px;
-font-weight: 600; letter-spacing: 1px; font-size: 13px;
+background: var(--dark); color: var(--gold); padding: 4px 12px;
+border-radius: 12px; font-weight: 600; letter-spacing: 1px; font-size: 13px;
 }
 section { padding: 100px 40px; }
-.section-tag {
-font-size: 11px; letter-spacing: 3px;
-text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
-}
-.section-title {
-font-family: 'Cormorant Garamond', serif;
-font-size: clamp(36px, 5vw, 54px);
-font-weight: 300; line-height: 1.2; margin-bottom: 20px;
-}
-.section-sub {
-color: var(--muted); font-size: 15px;
-line-height: 1.8; max-width: 520px; margin-bottom: 60px;
-}
+.section-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 54px); font-weight: 300; line-height: 1.2; margin-bottom: 20px; }
+.section-sub { color: var(--muted); font-size: 15px; line-height: 1.8; max-width: 520px; margin-bottom: 60px; }
 .products { background: var(--warm); }
-.product-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 28px; max-width: 1100px; margin: 0 auto;
-}
-.product-card {
-background: white; border-radius: 20px; padding: 32px;
-position: relative; transition: transform 0.3s, box-shadow 0.3s;
-overflow: hidden; border-bottom: 3px solid transparent;
-}
-.product-card:hover {
-transform: translateY(-6px);
-box-shadow: 0 20px 60px rgba(139,26,26,0.12);
-border-bottom-color: var(--gold);
-}
-.product-step {
-font-size: 11px; letter-spacing: 2px;
-text-transform: uppercase; color: var(--red); margin-bottom: 8px;
-}
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; max-width: 1100px; margin: 0 auto; }
+.product-card { background: white; border-radius: 20px; padding: 32px; position: relative; transition: transform 0.3s, box-shadow 0.3s; overflow: hidden; border-bottom: 3px solid transparent; }
+.product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(139,26,26,0.12); border-bottom-color: var(--gold); }
+.product-step { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
 .product-emoji { font-size: 48px; margin-bottom: 16px; display: block; }
 .product-brand { font-size: 12px; color: var(--muted); margin-bottom: 4px; letter-spacing: 1px; }
 .product-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; margin-bottom: 12px; }
 .product-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
 .product-price { font-size: 18px; font-weight: 500; color: var(--red); margin-bottom: 20px; }
-.product-btn {
-width: 100%; padding: 12px; background: var(--dark); color: white;
-border: none; border-radius: 12px; font-size: 13px; letter-spacing: 1px;
-cursor: pointer; transition: background 0.3s;
-}
+.product-btn { width: 100%; padding: 12px; background: var(--dark); color: white; border: none; border-radius: 12px; font-size: 13px; letter-spacing: 1px; cursor: pointer; transition: background 0.3s; }
 .product-btn:hover { background: var(--red); }
-.product-badge {
-position: absolute; top: 20px; right: 20px;
-background: var(--warm); color: var(--red);
-padding: 4px 10px; border-radius: 10px; font-size: 11px; font-weight: 500;
-}
+.product-badge { position: absolute; top: 20px; right: 20px; background: var(--warm); color: var(--red); padding: 4px 10px; border-radius: 10px; font-size: 11px; font-weight: 500; }
 .chatbot-section { background: var(--cream); }
-.chatbot-wrapper {
-max-width: 680px; margin: 0 auto; background: white;
-border-radius: 28px; overflow: hidden;
-box-shadow: 0 20px 80px rgba(139,26,26,0.08);
-}
+.chatbot-wrapper { max-width: 680px; margin: 0 auto; background: white; border-radius: 28px; overflow: hidden; box-shadow: 0 20px 80px rgba(139,26,26,0.08); }
 .chat-header { background: var(--dark); padding: 24px 28px; display: flex; align-items: center; gap: 14px; }
 .chat-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; font-size: 18px; }
 .chat-header-text h3 { color: white; font-size: 15px; font-weight: 500; }
@@ -204,8 +154,7 @@ box-shadow: 0 20px 80px rgba(139,26,26,0.08);
 .step h4 { font-size: 15px; font-weight: 500; margin-bottom: 10px; color: var(--warm); }
 .step p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; }
 footer { background: var(--dark); color: white; padding: 48px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; border-top: 1px solid rgba(200,150,12,0.15); }
-.footer-logo { height: 40px; }
-.footer-logo img { height: 40px; object-fit: contain; filter: brightness(0) invert(1); }
+.footer-logo img { height: 40px; object-fit: contain; }
 .footer-links { display: flex; gap: 24px; }
 .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
 .footer-links a:hover { color: var(--gold); }
@@ -215,13 +164,7 @@ footer p { color: rgba(255,255,255,0.25); font-size: 12px; }
 .typing span:nth-child(2) { animation-delay: 0.2s; }
 .typing span:nth-child(3) { animation-delay: 0.4s; }
 @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-8px); } }
-@media (max-width: 768px) {
-nav { padding: 16px 20px; }
-.nav-links { display: none; }
-.hero { padding: 100px 20px 60px; }
-section { padding: 60px 20px; }
-footer { padding: 32px 20px; flex-direction: column; text-align: center; }
-}
+@media (max-width: 768px) { nav { padding: 16px 20px; } .nav-links { display: none; } .hero { padding: 100px 20px 60px; } section { padding: 60px 20px; } footer { padding: 32px 20px; flex-direction: column; text-align: center; } }
 </style>
 </head>
 <body>
