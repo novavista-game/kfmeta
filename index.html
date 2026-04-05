@@ -1,289 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KFMETA — AI-Curated Korean Street Food</title>
-<meta name="description" content="Discover authentic Korean street food ingredients, sauces, and kits. AI-curated picks from tteokbokki to buldak — delivered to your door via Amazon.">
-<meta name="keywords" content="Korean street food, K-Food, gochujang, tteokbokki, Korean ramen, buldak, Korean cooking, Korean food ingredients, kimchi, Korean snacks">
-<meta name="robots" content="index, follow">
-<meta name="author" content="KFMETA">
-<meta property="og:title" content="KFMETA — AI-Curated Korean Street Food">
-<meta property="og:description" content="Taste the streets of Seoul. Korean street food ingredients curated by AI, delivered to your door.">
-<meta property="og:url" content="https://novavista-game.github.io/kfmeta">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="KFMETA — AI-Curated Korean Street Food">
-<meta name="twitter:description" content="Taste the streets of Seoul. Korean street food curated by AI.">
-<link rel="canonical" href="https://novavista-game.github.io/kfmeta">
-<meta name="google-site-verification" content="J6K3pRrrndiMs78kWB8_nE8_95ePuM3uqwYyy3SSfWY" />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root {
---red: #8B1A1A;
---gold: #C8960C;
---dark: #1A0A00;
---cream: #FDF6ED;
---warm: #F5E6CC;
---muted: #7A5C3A;
---light-gold: #E8C45A;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; }
-nav {
-position: fixed; top: 0; width: 100%; z-index: 100;
-padding: 16px 40px;
-display: flex; justify-content: space-between; align-items: center;
-background: rgba(26,10,0,0.95);
-backdrop-filter: blur(12px);
-border-bottom: 1px solid rgba(200,150,12,0.3);
-}
-.nav-logo { display: flex; align-items: center; }
-.nav-logo img { height: 45px; object-fit: contain; }
-.nav-links { display: flex; gap: 28px; align-items: center; }
-.nav-links a { text-decoration: none; color: rgba(255,255,255,0.7); font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.3s; }
-.nav-links a:hover { color: var(--gold); }
-.nav-amazon { background: var(--gold); color: var(--dark); padding: 8px 18px; border-radius: 20px; font-size: 12px; letter-spacing: 1px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
-.nav-amazon:hover { background: var(--light-gold); }
-.hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 40px 80px; position: relative; overflow: hidden; background: linear-gradient(135deg, var(--dark) 0%, #3D0E00 50%, #1A0A00 100%); }
-.hero::before { content: ''; position: absolute; top: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(200,150,12,0.15) 0%, transparent 70%); border-radius: 50%; }
-.hero::after { content: '🍜'; position: absolute; right: 8%; top: 25%; font-size: 200px; opacity: 0.06; pointer-events: none; }
-.hero-content { max-width: 620px; animation: fadeUp 1s ease both; }
-.hero-tag { display: inline-block; background: rgba(200,150,12,0.2); color: var(--gold); padding: 6px 16px; border-radius: 20px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; border: 1px solid rgba(200,150,12,0.3); }
-.hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 7vw, 80px); font-weight: 300; line-height: 1.1; margin-bottom: 24px; color: white; }
-.hero h1 em { font-style: italic; color: var(--gold); }
-.hero p { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.6); margin-bottom: 40px; max-width: 480px; }
-.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-.btn-primary { background: var(--gold); color: var(--dark); padding: 14px 32px; border-radius: 30px; font-size: 13px; letter-spacing: 1px; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
-.btn-primary:hover { background: var(--light-gold); transform: translateY(-2px); }
-.btn-secondary { background: transparent; color: white; padding: 14px 32px; border-radius: 30px; font-size: 13px; letter-spacing: 1px; border: 1.5px solid rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
-.btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
-.amazon-banner { background: var(--gold); color: var(--dark); padding: 14px 40px; display: flex; justify-content: center; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 1px; font-weight: 500; }
-.amazon-badge { background: var(--dark); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-weight: 600; letter-spacing: 1px; font-size: 13px; }
-section { padding: 100px 40px; }
-.section-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 54px); font-weight: 300; line-height: 1.2; margin-bottom: 20px; }
-.section-sub { color: var(--muted); font-size: 15px; line-height: 1.8; max-width: 520px; margin-bottom: 60px; }
-.products { background: var(--warm); }
-.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; max-width: 1100px; margin: 0 auto; }
-.product-card { background: white; border-radius: 20px; padding: 32px; position: relative; transition: transform 0.3s, box-shadow 0.3s; overflow: hidden; border-bottom: 3px solid transparent; }
-.product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(139,26,26,0.12); border-bottom-color: var(--gold); }
-.product-step { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
-.product-emoji { font-size: 48px; margin-bottom: 16px; display: block; }
-.product-brand { font-size: 12px; color: var(--muted); margin-bottom: 4px; letter-spacing: 1px; }
-.product-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; margin-bottom: 12px; }
-.product-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
-.product-price { font-size: 18px; font-weight: 500; color: var(--red); margin-bottom: 20px; }
-.product-btn { width: 100%; padding: 12px; background: var(--dark); color: white; border: none; border-radius: 12px; font-size: 13px; letter-spacing: 1px; cursor: pointer; transition: background 0.3s; }
-.product-btn:hover { background: var(--red); }
-.product-badge { position: absolute; top: 20px; right: 20px; background: var(--warm); color: var(--red); padding: 4px 10px; border-radius: 10px; font-size: 11px; font-weight: 500; }
-.chatbot-section { background: var(--cream); }
-.chatbot-wrapper { max-width: 680px; margin: 0 auto; background: white; border-radius: 28px; overflow: hidden; box-shadow: 0 20px 80px rgba(139,26,26,0.08); }
-.chat-header { background: var(--dark); padding: 24px 28px; display: flex; align-items: center; gap: 14px; }
-.chat-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; font-size: 18px; }
-.chat-header-text h3 { color: white; font-size: 15px; font-weight: 500; }
-.chat-header-text p { color: rgba(255,255,255,0.5); font-size: 12px; }
-.chat-status { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; margin-left: auto; }
-.chat-messages { padding: 28px; min-height: 320px; max-height: 400px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; }
-.msg { max-width: 80%; animation: fadeUp 0.3s ease; }
-.msg-bot { align-self: flex-start; background: var(--warm); border-radius: 0 16px 16px 16px; padding: 14px 18px; font-size: 14px; line-height: 1.7; color: var(--dark); }
-.msg-user { align-self: flex-end; background: var(--dark); color: white; border-radius: 16px 16px 0 16px; padding: 14px 18px; font-size: 14px; line-height: 1.7; }
-.quick-replies { padding: 0 28px 20px; display: flex; flex-wrap: wrap; gap: 8px; }
-.quick-btn { background: var(--warm); color: var(--dark); border: none; border-radius: 20px; padding: 8px 16px; font-size: 12px; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
-.quick-btn:hover { background: var(--red); color: white; }
-.chat-input-area { padding: 20px 28px; border-top: 1px solid var(--warm); display: flex; gap: 12px; }
-.chat-input { flex: 1; padding: 12px 18px; border: 1.5px solid var(--warm); border-radius: 24px; font-size: 14px; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s; color: var(--dark); }
-.chat-input:focus { border-color: var(--red); }
-.chat-send { background: var(--red); color: white; border: none; border-radius: 50%; width: 44px; height: 44px; cursor: pointer; font-size: 18px; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
-.chat-send:hover { transform: scale(1.1); }
-.how { background: var(--dark); color: white; }
-.how .section-title { color: white; }
-.how .section-sub { color: rgba(255,255,255,0.5); }
-.steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 900px; }
-.step { text-align: center; }
-.step-num { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; color: rgba(200,150,12,0.3); line-height: 1; margin-bottom: 12px; }
-.step h4 { font-size: 15px; font-weight: 500; margin-bottom: 10px; color: var(--warm); }
-.step p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; }
-footer { background: var(--dark); color: white; padding: 48px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; border-top: 1px solid rgba(200,150,12,0.15); }
-.footer-logo img { height: 40px; object-fit: contain; }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
-.footer-links a:hover { color: var(--gold); }
-footer p { color: rgba(255,255,255,0.25); font-size: 12px; }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.typing span { display: inline-block; width: 6px; height: 6px; background: var(--red); border-radius: 50%; margin: 0 2px; animation: bounce 1.2s infinite; }
-.typing span:nth-child(2) { animation-delay: 0.2s; }
-.typing span:nth-child(3) { animation-delay: 0.4s; }
-@keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-8px); } }
-@media (max-width: 768px) { nav { padding: 16px 20px; } .nav-links { display: none; } .hero { padding: 100px 20px 60px; } section { padding: 60px 20px; } footer { padding: 32px 20px; flex-direction: column; text-align: center; } }
-</style>
-</head>
-<body>
-
-<nav>
-  <div class="nav-logo">
-    <img src="KFMETA_Logo.png" alt="KFMETA">
-  </div>
-  <div class="nav-links">
-    <a href="#products">Shop</a>
-    <a href="#advisor">AI Advisor</a>
-    <a href="#how">How It Works</a>
-    <a href="https://www.instagram.com/eunice.novavistameta" target="_blank">Instagram</a>
-    <a href="https://www.youtube.com/@NovaVistaMetaTravel" target="_blank">YouTube</a>
-  </div>
-  <a class="nav-amazon" href="https://www.amazon.com/hz/wishlist/ls/DB68LXDJRN6P" target="_blank">Shop on Amazon →</a>
-</nav>
-
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-tag">🌶️ AI-Curated Korean Street Food</div>
-    <h1>Taste the streets<br>of <em>Seoul</em>,<br>at home.</h1>
-    <p>Authentic Korean street food ingredients, sauces, and kits — curated by AI. Zero guesswork, just bold flavors delivered straight to your door.</p>
-    <div class="hero-btns">
-      <a href="#advisor" class="btn-primary">Find My Recipe →</a>
-      <a href="#products" class="btn-secondary">Shop Picks</a>
-    </div>
-  </div>
-</section>
-
-<div class="amazon-banner">
-  <span>🛒 Shop our full K-Food picks on</span>
-  <span class="amazon-badge">Amazon</span>
-  <span>— authentic & ready to ship</span>
-</div>
-
-<section class="products" id="products">
-  <div class="section-tag">✦ Curated Picks</div>
-  <h2 class="section-title">The Korean Street<br>Food Starter Kit</h2>
-  <p class="section-sub">From sizzling tteokbokki to rich budae jjigae — our AI selected the essential ingredients to recreate Korean street food magic at home.</p>
-  <div class="product-grid">
-
-    <div class="product-card">
-      <div class="product-badge">Essential 1</div>
-      <span class="product-emoji">🌶️</span>
-      <div class="product-step">The Base</div>
-      <div class="product-brand">Chung Jung One</div>
-      <div class="product-name">Gochujang Korean Red Pepper Paste</div>
-      <p class="product-desc">The soul of Korean cooking. This spicy, sweet, savory paste is the foundation of tteokbokki, bibimbap, and countless street food dishes.</p>
-      <div class="product-price">~$15</div>
-      <button class="product-btn" onclick="window.open('https://www.amazon.com/hz/wishlist/ls/DB68LXDJRN6P','_blank')">Shop on Amazon →</button>
-    </div>
-
-    <div class="product-card">
-      <div class="product-badge">Essential 2</div>
-      <span class="product-emoji">🍜</span>
-      <div class="product-step">The Heat</div>
-      <div class="product-brand">Samyang</div>
-      <div class="product-name">Buldak Bokkeummyeon Fire Noodles</div>
-      <p class="product-desc">The legendary Korean fire noodle that took the world by storm. Intensely spicy, deeply satisfying — the ultimate street food ramen experience.</p>
-      <div class="product-price">~$12</div>
-      <button class="product-btn" onclick="window.open('https://www.amazon.com/hz/wishlist/ls/DB68LXDJRN6P','_blank')">Shop on Amazon →</button>
-    </div>
-
-    <div class="product-card">
-      <div class="product-badge">Essential 3</div>
-      <span class="product-emoji">🥘</span>
-      <div class="product-step">The Comfort</div>
-      <div class="product-brand">KULOSORY</div>
-      <div class="product-name">Budae Jjigae K-Army Stew Kit</div>
-      <p class="product-desc">Korea's iconic fusion stew born on the streets. Rich, hearty broth packed with ramen, spam, and vegetables — pure comfort in a bowl.</p>
-      <div class="product-price">~$30</div>
-      <button class="product-btn" onclick="window.open('https://www.amazon.com/hz/wishlist/ls/DB68LXDJRN6P','_blank')">Shop on Amazon →</button>
-    </div>
-
-  </div>
-</section>
-
-<section class="chatbot-section" id="advisor">
-  <div style="text-align:center; margin-bottom: 60px;">
-    <div class="section-tag">✦ AI Food Advisor</div>
-    <h2 class="section-title">Your Personal<br>K-Food Guide</h2>
-    <p class="section-sub" style="margin: 0 auto;">Tell us what you're craving and we'll find the perfect Korean street food recipe and ingredients — instantly, for free.</p>
-  </div>
-  <div class="chatbot-wrapper">
-    <div class="chat-header">
-      <div class="chat-avatar">🌶️</div>
-      <div class="chat-header-text">
-        <h3>KFMETA Advisor</h3>
-        <p>AI-powered Korean food curation</p>
-      </div>
-      <div class="chat-status"></div>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-      <div class="msg msg-bot">Annyeong! 👋 I'm your personal K-Food advisor.<br><br>Tell me what you're craving and I'll find the perfect Korean street food ingredients for you. What sounds good today?</div>
-    </div>
-    <div class="quick-replies" id="quickReplies">
-      <button class="quick-btn" onclick="sendQuick('I want something spicy')">🌶️ Spicy</button>
-      <button class="quick-btn" onclick="sendQuick('I want comfort food')">🥘 Comfort food</button>
-      <button class="quick-btn" onclick="sendQuick('I want Korean ramen')">🍜 Ramen</button>
-      <button class="quick-btn" onclick="sendQuick('I want something sweet')">🍡 Sweet snacks</button>
-      <button class="quick-btn" onclick="sendQuick('I want to cook Korean BBQ')">🥩 Korean BBQ</button>
-    </div>
-    <div class="chat-input-area">
-      <input class="chat-input" id="chatInput" type="text" placeholder="What Korean food are you craving?" onkeypress="if(event.key==='Enter')sendMessage()">
-      <button class="chat-send" onclick="sendMessage()">→</button>
-    </div>
-  </div>
-</section>
-
-<section class="how" id="how">
-  <div class="section-tag" style="color: var(--gold);">✦ How It Works</div>
-  <h2 class="section-title">Seoul flavors,<br>zero hassle.</h2>
-  <p class="section-sub">KFMETA is powered entirely by AI — we curate, you cook.</p>
-  <div class="steps-grid">
-    <div class="step">
-      <div class="step-num">01</div>
-      <h4>Tell Us Your Craving</h4>
-      <p>Spicy? Savory? Sweet? Tell our AI what Korean flavors you're after.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <h4>AI Curates Your Kit</h4>
-      <p>Our AI picks the exact ingredients you need from authentic Korean brands.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <h4>Shop on Amazon</h4>
-      <p>Browse our curated K-Food picks on Amazon — fast shipping, easy returns.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">04</div>
-      <h4>Cook & Enjoy</h4>
-      <p>Recreate the magic of Korean street food in your own kitchen.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-logo">
-    <img src="KFMETA_Logo.png" alt="KFMETA">
-  </div>
-  <div class="footer-links">
-    <a href="https://www.instagram.com/eunice.novavistameta" target="_blank">Instagram</a>
-    <a href="https://www.youtube.com/@NovaVistaMetaTravel" target="_blank">YouTube</a>
-    <a href="https://novavista-game.github.io/kbeautymeta" target="_blank">KBMETA</a>
-    <a href="https://www.amazon.com/hz/wishlist/ls/DB68LXDJRN6P" target="_blank">Shop Amazon</a>
-  </div>
-  <p>© 2026 KFMETA · Korean Street Food</p>
-</footer>
-
-<script>
 const responses = {
-  spicy: { text: "🌶️ You want heat? Here's your spicy K-Food kit:\n\n🌶️ Gochujang Paste (~$15) — the spicy base\n🍜 Buldak Fire Noodles (~$12) — legendary heat\n🥘 Tteokbokki Kit (~$18) — spicy rice cake street food\n\nAll on our Amazon K-Food list! 불이야! 🔥", quick: ['How spicy is buldak?', 'Tteokbokki recipe?', 'Shop spicy kit'] },
-  comfort: { text: "🥘 Comfort food Korean style hits different!\n\n🥘 Budae Jjigae Kit (~$30) — K-Army stew, ultimate comfort\n🍜 Shin Ramyun (~$10) — Korea's #1 comfort noodle\n🫙 Doenjang Paste (~$12) — rich fermented soybean magic\n\nFind everything on our Amazon list! 따뜻해~ ✨", quick: ['What is budae jjigae?', 'Easy Korean recipes?', 'Shop comfort kit'] },
-  ramen: { text: "🍜 Korean ramen is next level!\n\n🍜 Buldak Bokkeummyeon (~$12) — fire noodles legend\n🍜 Shin Ramyun (~$10) — the classic spicy ramen\n🥚 Pro tip: Add an egg + cheese + spam!\n\nShop our full ramen picks on Amazon! 맛있어! ✨", quick: ['Buldak vs Shin Ramyun?', 'How to upgrade instant ramen?', 'Shop ramen kit'] },
-  sweet: { text: "🍡 Korean sweet snacks are addictive!\n\n🍡 Choco Pie (~$8) — iconic Korean treat\n🌰 Honey Butter Chips (~$12) — went viral worldwide\n🍬 Pepero (~$6) — Korea's beloved chocolate stick\n\nAll on our Amazon K-Food list! 달콤해~ 🍯", quick: ['More Korean snacks?', 'Best Korean candy?', 'Shop sweet kit'] },
-  bbq: { text: "🥩 Korean BBQ at home — YES!\n\n🥩 Bulgogi Marinade (~$8) — sweet soy beef perfection\n🌶️ Gochujang (~$15) — for the spicy pork\n🫙 Ssamjang (~$10) — essential BBQ dipping sauce\n\nGet the full BBQ kit on Amazon! 고기고기! 🔥", quick: ['Bulgogi recipe?', 'What to wrap in ssam?', 'Shop BBQ kit'] },
-  default: { text: "Korean street food is all about bold flavors! 🌶️\n\nOur AI-curated starter kit:\n\n🌶️ Gochujang Paste $15\n🍜 Buldak Fire Noodles $12\n🥘 Budae Jjigae Kit $30\n\nBrowse our full K-Food picks on Amazon! ✨\n\nTell me what you're craving!", quick: ['Spicy food', 'Comfort food', 'Korean ramen', 'Korean BBQ'] }
+  spicy: {
+    text: "🌶️ You want HEAT? Here's your ultimate spicy K-Food kit:\n\n🌶️ Gochujang Paste (~$15) — the spicy soul of Korea\n🍜 Buldak Fire Noodles (~$12) — legendary 4,400 Scoville heat!\n🥘 Tteokbokki Kit (~$18) — chewy rice cakes in fiery sauce\n🥬 Kimchi (~$12) — fermented spicy perfection\n\n🎬 Watch our Tteokbokki ASMR:\nyoutube.com/@NovaVistaMetaTravel\n\n🛒 Shop spicy kit:\nnovavista-game.github.io/kfmeta/#products\n\n*As an Amazon Associate I earn from qualifying purchases.",
+    quick: ['How spicy is Buldak?', 'Tteokbokki recipe?', 'Show me kimchi options', 'Shop spicy kit →']
+  },
+  comfort: {
+    text: "🥘 Korean comfort food hits different!\n\n🥘 Budae Jjigae Kit (~$30) — K-Army stew, ultimate warmth\n🍜 Shin Ramyun (~$10) — Korea's #1 comfort noodle\n🫙 Doenjang Paste (~$12) — rich fermented soybean magic\n🍚 Dolsot Bibimbap Kit (~$22) — stone pot rice bowl perfection\n\n🎬 Watch our Dolsot Bibimbap ASMR:\nyoutube.com/@NovaVistaMetaTravel\n\n🛒 Shop comfort kit:\nnovavista-game.github.io/kfmeta/#products\n\n*As an Amazon Associate I earn from qualifying purchases.",
+    quick: ['What is Budae Jjigae?', 'Easy Bibimbap recipe?', 'More comfort options', 'Shop comfort kit →']
+  },
+  ramen: {
+    text: "🍜 Korean ramen is next level!\n\n🍜 Buldak Bokkeummyeon (~$12) — fire noodles legend\n🍜 Shin Ramyun (~$10) — the ultimate spicy classic\n🍜 Jjapagetti (~$8) — Korean black bean noodles\n🍜 Neoguri (~$9) — seafood udon style ramen\n\n💡 Pro tip: Add egg + cheese + spam + green onions!\n\n🎬 Watch Korean ramen ASMR:\nyoutube.com/@NovaVistaMetaTravel\n\n🛒 Shop ramen kit:\nnovavista-game.github.io/kfmeta/#products\n\n*As an Amazon Associate I earn from qualifying purchases.",
+    quick: ['Buldak vs Shin Ramyun?', 'How to upgrade instant ramen?', 'Jjapagetti recipe?', 'Shop ramen kit →']
+  },
+  sweet: {
+    text: "🍡 Korean sweet snacks are dangerously addictive!\n\n🍡 Choco Pie (~$8) — iconic Korean marshmallow treat\n🌰 Honey Butter Chips (~$12) — went viral worldwide!\n🍬 Pepero (~$6) — Korea's beloved chocolate stick\n🍭 Yakgwa (~$10) — traditional honey cookies\n🧇 Hotteok Mix (~$15) — sweet pancake street food!\n\n🎬 Watch Korean street food ASMR:\nyoutube.com/@NovaVistaMetaTravel\n\n🛒 Shop sweet kit:\nnovavista-game.github.io/kfmeta/#products\n\n*As an Amazon Associate I earn from qualifying purchases.",
+    quick: ['What is Hotteok?', 'Best Korean candy?', 'Korean dessert recipes?', 'Shop sweet kit →']
+  },
+  bbq: {
+    text: "🥩 Korean BBQ at home — let's GO!\n\n🥩 Bulgogi Marinade (~$8) — sweet soy beef perfection\n🌶️ Gochujang (~$15) — for spicy pork (Jeyuk Bokkeum)\n🫙 Ssamjang (~$10) — essential BBQ dipping sauce\n🥬 Perilla leaves + lettuce — for ssam wraps\n🧄 Doenjang jjigae kit — perfect BBQ side dish\n\n💡 Pro tip: Marinate overnight for best results!\n\n🎬 Watch Korean BBQ ASMR:\nyoutube.com/@NovaVistaMetaTravel\n\n🛒 Shop BBQ kit:\nnovavista-game.github.io/kfmeta/#products\n\n*As an Amazon Associate I earn from qualifying purchases.",
+    quick: ['Bulgogi recipe?', 'What to wrap in ssam?', 'Best BBQ sides?', 'Shop BBQ kit →']
+  },
+  kimchi: {
+    text: "🥬 Kimchi — the heart of Korean cuisine!\n\n🥬 Traditional Baechu Kimchi (~$12) — classic napa cabbage\n🥬 Chonggak Kimchi (~$10) — ponytail radish kimchi, super crunchy!\n🥬 Kkakdugi (~$10) — cubed radish kimchi\n🌶️ Gochugaru (~$8) — Korean red pepper flakes for homemade kimchi\n\n🎬 Watch our Chonggak Kimchi ASMR:\nyoutube.com/@NovaVistaMetaTravel\n\n💡 Fun fact: Chonggak means 'bachelor' — named after its ponytail-like stems!\n\n🛒 Shop kimchi kit:\nnovavista-game.github.io/kfmeta/#products\n\n*As an Amazon Associate I earn from qualifying purchases.",
+    quick: ['How to make kimchi?', 'What is Chonggak Kimchi?', 'Kimchi recipes?', 'Shop kimchi kit →']
+  },
+  crab: {
+    text: "🦀 Korean Soy Sauce Crab — the ultimate rice thief!\n\n🦀 Ganjang Gejang Sauce (~$15) — authentic soy marinade\n🍚 Premium Korean Rice (~$20) — perfect pairing\n🧄 Korean Garlic (~$8) — essential flavor base\n🌶️ Gochugaru (~$8) — for the spicy version\n\n🎬 Watch our Ganjang Gejang ASMR:\nyoutube.com/@NovaVistaMetaTravel\n\n💡 Fun fact: Koreans call it '밥도둑' (rice thief) because you can't stop eating rice with it!\n\n🛒 Shop crab kit:\nnovavista-game.github.io/kfmeta/#products\n\n*As an Amazon Associate I earn from qualifying purchases.",
+    quick: ['What is Ganjang Gejang?', 'How to eat raw crab?', 'More seafood options?', 'Shop crab kit →']
+  },
+  seaweed: {
+    text: "🌿 Korean Seaweed Roll — Giant Street Food!\n\n🌿 Premium Gimbap Seaweed (~$10) — roasted perfection\n🍚 Sushi Rice (~$12) — perfect sticky rice\n🥕 Pickled Radish (~$8) — classic gimbap filling\n🥩 Bulgogi Kit (~$15) — for beef gimbap\n\n🎬 Watch our Giant Seaweed Roll ASMR:\nyoutube.com/@NovaVistaMetaTravel\n\n💡 One bite and you're addicted — guaranteed!\n\n🛒 Shop gimbap kit:\nnovavista-game.github.io/kfmeta/#products\n\n*As an Amazon Associate I earn from qualifying purchases.",
+    quick: ['Gimbap vs Sushi?', 'How to roll gimbap?', 'Giant seaweed roll recipe?', 'Shop gimbap kit →']
+  },
+  sotteok: {
+    text: "🍡 Sotteok Sotteok — Korea's addictive street skewer!\n\n🍡 Rice Cake Skewers (~$10) — chewy tteok\n🌭 Korean Fish Cake (~$12) — savory eomuk\n🌶️ Sweet Spicy Sauce (~$8) — the magic glaze\n🍯 Honey Butter (~$10) — for the sweet version\n\n🎬 Watch our Sotteok Sotteok ASMR:\nyoutube.com/@NovaVistaMetaTravel\n\n💡 Snap, Chew, Glow — the perfect street food combo!\n\n🛒 Shop sotteok kit:\nnovavista-game.github.io/kfmeta/#products\n\n*As an Amazon Associate I earn from qualifying purchases.",
+    quick: ['What is Sotteok?', 'Sotteok sauce recipe?', 'More street food skewers?', 'Shop sotteok kit →']
+  },
+  toast: {
+    text: "🍞 Korean Street Toast — breakfast game changer!\n\n🍞 Milk Bread (~$8) — soft pillowy Korean bread\n🥚 Korean Eggs (~$6) — for the fluffy egg patty\n🧀 Processed Cheese (~$8) — melty perfection\n🥬 Cabbage (~$5) — shredded and pan-fried\n🍯 Sugar + Ketchup — the secret sweet-savory combo!\n\n🎬 Watch our Korean Toast ASMR:\nyoutube.com/@NovaVistaMetaTravel\n\n💡 This will break your breakfast routine forever!\n\n🛒 Shop toast kit:\nnovavista-game.github.io/kfmeta/#products\n\n*As an Amazon Associate I earn from qualifying purchases.",
+    quick: ['Korean toast recipe?', 'What makes it different?', 'More breakfast options?', 'Shop toast kit →']
+  },
+  beginner: {
+    text: "🌟 Perfect Starter Picks for K-Food Beginners!\n\n🌶️ Gochujang Paste (~$15) — the flavor foundation\n🍜 Shin Ramyun (~$10) — easiest Korean meal ever\n🥬 Kimchi (~$12) — must-have Korean staple\n🍡 Choco Pie (~$8) — beloved Korean snack\n🥘 Tteokbokki Kit (~$18) — iconic street food\n\n💡 Start here and you'll be a K-Food expert in no time!\n\n🎬 Watch beginner-friendly ASMR:\nyoutube.com/@NovaVistaMetaTravel\n\n🛒 Shop beginner kit:\nnovavista-game.github.io/kfmeta/#products\n\n*As an Amazon Associate I earn from qualifying purchases.",
+    quick: ['Easiest Korean recipe?', 'What is Tteokbokki?', 'Korean cooking tips?', 'Shop beginner kit →']
+  },
+  shop: {
+    text: "🛒 Ready to shop? Here's everything in one place!\n\n✨ Our full K-Food collection:\nnovavista-game.github.io/kfmeta/#products\n\n🏆 Most Popular Picks:\n🌶️ Gochujang (~$15)\n🍜 Buldak Fire Noodles (~$12)\n🥘 Budae Jjigae Kit (~$30)\n🥬 Kimchi (~$12)\n\n🎬 Watch before you shop:\nyoutube.com/@NovaVistaMetaTravel\n\n*As an Amazon Associate I earn from qualifying purchases.",
+    quick: ['Spicy picks', 'Comfort food', 'Korean snacks', 'Korean BBQ kit']
+  },
+  default: {
+    text: "Annyeong! 👋 I'm your AI K-Food advisor!\n\nI can help you discover:\n🌶️ Spicy Korean street food\n🥘 Comfort Korean dishes\n🍜 Korean ramen & noodles\n🥬 Kimchi varieties\n🦀 Ganjang Gejang (soy crab)\n🍡 Korean street snacks\n🥩 Korean BBQ essentials\n\n🛒 Browse our full collection:\nnovavista-game.github.io/kfmeta/#products\n\nWhat are you craving today? 😊",
+    quick: ['🌶️ Spicy food', '🥘 Comfort food', '🍜 Korean ramen', '🥬 Kimchi options', '🦀 Soy sauce crab', '🥩 Korean BBQ']
+  }
 };
 
 function getResponse(msg) {
   const m = msg.toLowerCase();
-  if (m.includes('spicy') || m.includes('hot') || m.includes('fire') || m.includes('tteok')) return responses.spicy;
-  if (m.includes('comfort') || m.includes('warm') || m.includes('stew') || m.includes('soup')) return responses.comfort;
-  if (m.includes('ramen') || m.includes('noodle') || m.includes('ramyun')) return responses.ramen;
-  if (m.includes('sweet') || m.includes('snack') || m.includes('candy') || m.includes('choco')) return responses.sweet;
-  if (m.includes('bbq') || m.includes('grill') || m.includes('bulgogi') || m.includes('meat')) return responses.bbq;
+  if (m.includes('shop') || m.includes('buy') || m.includes('purchase') || m.includes('→')) return responses.shop;
+  if (m.includes('kimchi') || m.includes('ferment') || m.includes('chonggak') || m.includes('ponytail')) return responses.kimchi;
+  if (m.includes('crab') || m.includes('gejang') || m.includes('ganjang') || m.includes('seafood') || m.includes('raw')) return responses.crab;
+  if (m.includes('seaweed') || m.includes('gimbap') || m.includes('kimbap') || m.includes('roll')) return responses.seaweed;
+  if (m.includes('sotteok') || m.includes('skewer') || m.includes('fish cake') || m.includes('eomuk')) return responses.sotteok;
+  if (m.includes('toast') || m.includes('breakfast') || m.includes('egg') || m.includes('sandwich')) return responses.toast;
+  if (m.includes('beginner') || m.includes('start') || m.includes('new') || m.includes('first time')) return responses.beginner;
+  if (m.includes('spicy') || m.includes('hot') || m.includes('fire') || m.includes('tteok') || m.includes('buldak')) return responses.spicy;
+  if (m.includes('comfort') || m.includes('warm') || m.includes('stew') || m.includes('soup') || m.includes('bibimbap')) return responses.comfort;
+  if (m.includes('ramen') || m.includes('noodle') || m.includes('ramyun') || m.includes('instant')) return responses.ramen;
+  if (m.includes('sweet') || m.includes('snack') || m.includes('candy') || m.includes('choco') || m.includes('dessert')) return responses.sweet;
+  if (m.includes('bbq') || m.includes('grill') || m.includes('bulgogi') || m.includes('meat') || m.includes('pork')) return responses.bbq;
   return responses.default;
 }
 
@@ -338,6 +121,3 @@ function sendMessage() {
   input.value = '';
   sendQuick(text);
 }
-</script>
-</body>
-</html>
